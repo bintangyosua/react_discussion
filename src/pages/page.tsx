@@ -1,10 +1,10 @@
-import FullThreadPage from "../components/Elements/Reply/FullThread";
+import AThread from "../components/Fragments/AThread";
 import GeneralLayout from "../components/Layouts/GeneralLayout";
 
 export default function Page() {
   return (
     <GeneralLayout>
-      <FullThreadPage />
+      <AThread />
     </GeneralLayout>
   );
 }
