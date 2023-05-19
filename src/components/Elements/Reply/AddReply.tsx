@@ -1,8 +1,23 @@
+import { useState } from "react";
+import { useParams, RedirectFunction } from "react-router-dom";
+
 export default function AddReply() {
+  const { thread_id } = useParams();
+  const id_user = "nicholas";
+
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+
+  //   if (submitted) return
+
   return (
     <div className="max-w-full mb-5  mx-auto">
       <div className="mx-4">
-        <form action="http://localhost:3000/api/replies/add-reply">
+        <form
+          action="http://localhost:3000/api/replies/add-reply"
+          method="POST">
+          <input type="text" name="reply_id" defaultValue={""} hidden />
+          <input type="text" name="thread_id" defaultValue={thread_id} hidden />
+          <input type="text" name="id_user" defaultValue={id_user} hidden />
           <div className="">
             <label
               htmlFor="message"
@@ -10,6 +25,7 @@ export default function AddReply() {
               Your Reply
             </label>
             <textarea
+              name="reply_content"
               id="message"
               rows={4}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
