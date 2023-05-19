@@ -3,7 +3,7 @@ import Thread from "../Elements/NewThread/Index";
 
 const MainHome = () => {
   return (
-    <div className="container my-5 mx-auto w-1/3">
+    <div className="mr-96">
       <Thread />
       <div className="">
         <AllThreads />

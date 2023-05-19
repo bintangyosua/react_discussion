@@ -1,13 +1,8 @@
-import { useState } from "react";
-import { useParams, RedirectFunction } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function AddReply() {
   const { thread_id } = useParams();
   const id_user = "nicholas";
-
-  const [shouldRedirect, setShouldRedirect] = useState(false);
-
-  //   if (submitted) return
 
   return (
     <div className="max-w-full mb-5  mx-auto">

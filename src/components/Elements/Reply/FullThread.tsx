@@ -39,8 +39,8 @@ const FullThreadPage = () => {
   }
 
   return (
-    <div className="container mx-auto mb-3 mt-10">
-      <div className="bg-white rounded-lg shadow-md p-6 my-5">
+    <div className="container mx-auto mb-3 mr-96">
+      <div className="bg-white rounded-lg shadow-md p-6 mb-5">
         <h2 className="text-2xl font-bold mb-4 text-slate-800">
           {thread.thread_title}
         </h2>
