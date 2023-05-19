@@ -1,6 +1,16 @@
+import { useRef } from "react";
 import Button from "./Button";
 
 const Content = () => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  function autoResizeTextarea() {
+    const element = textareaRef.current;
+    if (element) {
+      element.style.height = "auto";
+      element.style.height = element.scrollHeight + "px";
+    }
+  }
   return (
     <div>
       <form action="http://localhost:3000/api/threads" method="POST">
@@ -9,7 +19,7 @@ const Content = () => {
           <input
             type="text"
             name="thread_title"
-            className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
+            className="w-full p-3 text-sm text-gray-900 bg-white border-0 focus:ring-0"
             placeholder="Title"
           />
         </div>
@@ -20,11 +30,13 @@ const Content = () => {
             </label>
             <textarea
               id="thread_content"
-              rows={4}
-              className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
+              rows={10}
+              className="w-full p-3 text-sm text-gray-900 bg-white border-0 focus:ring-0 resize-y"
               placeholder="Write a discussion"
               name="thread_content"
-              required></textarea>
+              required
+              onInput={autoResizeTextarea}
+              style={{ whiteSpace: "pre-line" }}></textarea>
           </div>
           <div className="flex items-center justify-between px-3 py-2 border-t">
             <button

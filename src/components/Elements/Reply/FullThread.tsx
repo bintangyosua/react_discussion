@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReplySection from "./ReplySection";
+import AddReply from "./AddReply";
 
 interface Thread {
   thread_id: number;
@@ -38,15 +39,18 @@ const FullThreadPage = () => {
   }
 
   return (
-    <div className="container mx-auto mb-3">
+    <div className="container mx-auto mb-3 mt-10">
       <div className="bg-white rounded-lg shadow-md p-6 my-5">
-        <h2 className="text-xl font-bold mb-4 text-slate-800">
+        <h2 className="text-2xl font-bold mb-4 text-slate-800">
           {thread.thread_title}
         </h2>
+        <hr className="mb-3" />
         <p className="text-gray-600 mb-4">Penulis: {thread.id_user}</p>
-        <p className="text-gray-800">{thread.thread_content}</p>
+        <p className="text-gray-800" style={{ whiteSpace: "pre-line" }}>
+          {thread.thread_content}
+        </p>
       </div>
-
+      <AddReply />
       <ReplySection />
     </div>
   );

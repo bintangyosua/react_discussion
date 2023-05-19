@@ -40,13 +40,17 @@ export default function ReplySection() {
   return (
     <>
       {replies.map((reply, index) => (
-        <div className="mb-4">
-          <div
-            key={index}
-            className="max-w-full max-h-full mx-5 bg-white rounded-xl">
-            <p className="text-slate-700 text-lg ml-3">{reply.id_user}</p>
-            <p className="p-4 text-slate-700">{reply.reply_content}</p>
-          </div>
+        <div className="mb-4 w-full" key={index}>
+          <a
+            href="#"
+            className="block max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 w-full">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+              {reply.id_user}
+            </h5>
+            <p className="block font-normal text-gray-700">
+              {reply.reply_content}
+            </p>
+          </a>
         </div>
       ))}
     </>

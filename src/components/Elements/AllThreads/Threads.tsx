@@ -28,7 +28,7 @@ const Threads = () => {
 
   return (
     <div className="container mx-auto mb-3">
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-white rounded-lg shadow-sm">
         {threads.map((thread: Thread) => (
           <a
             key={thread.thread_id}

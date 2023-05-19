@@ -4,10 +4,10 @@ const Logo = () => {
       <a
         href="/"
         className="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">
-        LogoText
+        Discuss
       </a>
       <br />
-      <span className="text-xs text-grey-dark">Beautiful New Tagline</span>
+      <span className="text-xs text-grey-dark">Talk anything</span>
     </div>
   );
 };
