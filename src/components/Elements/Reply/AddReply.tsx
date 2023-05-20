@@ -27,7 +27,7 @@ export default function AddReply() {
               placeholder="Write your thoughts here..."></textarea>
             <button
               type="submit"
-              className="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 mt-1">
+              className="px-3 py-2 text-xs font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 mt-1">
               Submit
             </button>
           </div>

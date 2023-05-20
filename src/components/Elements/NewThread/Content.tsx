@@ -11,6 +11,11 @@ const Content = () => {
       element.style.height = element.scrollHeight + "px";
     }
   }
+
+  const username = localStorage.getItem("id_user");
+  if (username === null) {
+    username === "d";
+  }
   return (
     <div>
       <form action="http://localhost:3000/api/threads" method="POST">
@@ -23,6 +28,12 @@ const Content = () => {
             placeholder="Title"
           />
         </div>
+        <input
+          type="text"
+          hidden
+          name="id_user"
+          defaultValue={username || "Anonymous"}
+        />
         <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 ">
           <div className="px-4 py-2 bg-white rounded-t-lg ">
             <label htmlFor="thread_content" className="sr-only">
@@ -34,14 +45,13 @@ const Content = () => {
               className="w-full p-3 text-sm text-gray-900 bg-white border-0 focus:ring-0 resize-y"
               placeholder="Write a discussion"
               name="thread_content"
-              required
               onInput={autoResizeTextarea}
               style={{ whiteSpace: "pre-line" }}></textarea>
           </div>
           <div className="flex items-center justify-between px-3 py-2 border-t">
             <button
               type="submit"
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800">
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-600">
               Post Discussion
             </button>
             <div className="flex pl-0 space-x-1 sm:pl-2">
