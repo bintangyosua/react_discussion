@@ -6,6 +6,8 @@ import Home from "./pages/home";
 import Page from "./pages/page";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Profile from "./pages/profile";
+import Question from "./pages/question";
 
 const router = createBrowserRouter([
   {
@@ -13,12 +15,16 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
+    path: "/question/:question_id",
+    element: <Question />,
+  },
+  {
     path: "/page/:thread_id",
     element: <Page />,
   },
   {
     path: "/profile/:id_user",
-    element: <p>Hello</p>,
+    element: <Profile />,
   },
   {
     path: "/login",

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
-import { logoutAPI } from "../../../api";
+import { logoutAPI } from "../../../services/authAPI";
 
 const Navbar = () => {
   const [status, setStatus] = useState(false);

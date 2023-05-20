@@ -1,7 +1,30 @@
+import { useState, useEffect } from "react";
 import { useRef } from "react";
 import Button from "./Button";
+import { post } from "../../../utils/api";
 
 const Content = () => {
+  const [thread, setThread] = useState("");
+  const [threadContent, setThreadContent] = useState("");
+  const [categoryId, setCategoryId] = useState(0);
+  const username = localStorage.getItem("id_user");
+  if (username === null) {
+    username === "d";
+  }
+
+  useEffect(() => {
+    try {
+      const result = post("http://localhost:3000/api/threads", {
+        thread_id: 3,
+        thread_content: threadContent,
+        category_id: categoryId,
+        id_user: username,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   function autoResizeTextarea() {
@@ -12,10 +35,6 @@ const Content = () => {
     }
   }
 
-  const username = localStorage.getItem("id_user");
-  if (username === null) {
-    username === "d";
-  }
   return (
     <div>
       <form action="http://localhost:3000/api/threads" method="POST">

@@ -27,7 +27,7 @@ const FullThreadPage = () => {
           setThread(data[0]);
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 

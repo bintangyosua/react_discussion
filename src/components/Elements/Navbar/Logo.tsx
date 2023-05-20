@@ -6,8 +6,7 @@ const Logo = () => {
         className="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">
         Discuss
       </a>
-      <br />
-      <span className="text-xs text-grey-dark">Talk anything</span>
+      <span className="block text-xs text-grey-dark">Talk anything</span>
     </div>
   );
 };

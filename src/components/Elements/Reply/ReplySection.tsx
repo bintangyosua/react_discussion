@@ -27,7 +27,6 @@ export default function ReplySection() {
       if (!result.ok) throw new Error("Request Failed");
       const data = await result.json();
       setReplies(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }

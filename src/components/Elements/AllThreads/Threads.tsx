@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 interface Thread {
   thread_id: number;
   thread_title: string;
-  thread_content: string;
+  thread_content: string | null;
   id_user: string;
 }
 
 const Threads = () => {
-  const [threads, setThreads] = useState([]);
+  const [threads, setThreads] = useState<Thread[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,9 +17,8 @@ const Threads = () => {
         if (!response.ok) throw new Error("Request failed");
         const data = await response.json();
         setThreads(data);
-        console.log(data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 
@@ -37,12 +36,10 @@ const Threads = () => {
               <div
                 className="border border-gray-300 rounded-md p-4"
                 key={thread.thread_id}>
-                <h3 className="text-lg font-bold text-slate-600 mb-2">
-                  {thread.thread_title}
-                </h3>
                 <p className="text-gray-600 mb-2">Penulis: {thread.id_user}</p>
                 <p className="text-gray-800" style={{ whiteSpace: "pre-wrap" }}>
-                  {thread.thread_content.length > 200
+                  {thread.thread_content !== null &&
+                  thread.thread_content.length > 200
                     ? thread.thread_content.substring(0, 200) + "..."
                     : thread.thread_content}
                 </p>

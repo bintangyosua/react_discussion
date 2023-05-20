@@ -1,10 +1,11 @@
+import AddQuestion from "../AddQuestion/AddQuestion";
 import Content from "./Content";
 
 const Index = () => {
   return (
     <div className="mb-5">
       <div>
-        <Content />
+        <AddQuestion />
       </div>
     </div>
   );

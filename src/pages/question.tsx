@@ -1,16 +1,14 @@
-import MainHome from "../components/Fragments/MainHome";
+import QuestionBar from "../components/Fragments/QuestionBar";
+import QuestionFull from "../components/Fragments/QuestionFull";
 import Sidebar from "../components/Fragments/SideBar";
 import GeneralLayout from "../components/Layouts/GeneralLayout";
-import QuestionBar from "../components/Fragments/QuestionBar";
 
-const Home = () => {
+export default function Question() {
   return (
     <GeneralLayout>
       <Sidebar />
-      <MainHome />
+      <QuestionFull />
       <QuestionBar />
     </GeneralLayout>
   );
-};
-
-export default Home;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InputForm from "../Elements/Input/Index";
 import Button from "../Elements/Button/Index";
-import { loginAPI } from "../../api";
+import { loginAPI } from "../../services/authAPI";
 
 const FormLogin = () => {
   const [username, setUsername] = useState("");
@@ -25,7 +25,6 @@ const FormLogin = () => {
         localStorage.setItem("id_user", username);
         localStorage.setItem("password_user", password);
         localStorage.setItem("sessionId", response.sessionId);
-        console.log(response);
 
         setLoggedIn(true);
       } else {
