@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { getAllQuestions, questionModel } from "../../services/questionAPI";
+import { getAllQuestions, QuestionModel } from "../../services/questionAPI";
 
 export default function QuestionBar() {
-  const [questions, setQuestions] = useState<questionModel[]>([]);
+  const [questions, setQuestions] = useState<QuestionModel[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,9 +25,10 @@ export default function QuestionBar() {
         </h5>
         {questions.map((item) => (
           <a href={`/question/${item.question_id}`} key={item.question_id}>
-            <p className="font-normal text-blue-600 text-lg">
+            <span className="font-normal text-blue-600 text-lg">
               {item.question_content}
-            </p>
+            </span>
+            <br />
           </a>
         ))}
       </div>

@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 interface Reply {
   children: string;
-  reply_id: number;
+  reply_id: string;
   reply_content: string;
   id_user: string;
-  thread_id: number;
+  thread_id: string;
 }
 
 export default function ReplySection() {

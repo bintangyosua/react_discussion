@@ -4,7 +4,7 @@ import ReplySection from "./ReplySection";
 import AddReply from "./AddReply";
 
 interface Thread {
-  thread_id: number;
+  thread_id: string;
   thread_title: string;
   thread_content: string;
   id_user: string;

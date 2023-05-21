@@ -2,29 +2,29 @@ const APIheaders = {
   "Content-Type": "application/json",
 };
 
-export interface QuestionModel {
+interface ThreadModel {
+  thread_id: string;
+  thread_content: string;
   question_id: string;
-  question_content: string;
-  category_id: string;
   id_user: string;
 }
 
-export const addQuestion = async ({
+export const addThread = async ({
+  thread_id,
+  thread_content,
   question_id,
-  question_content,
-  category_id,
   id_user,
-}: QuestionModel) => {
+}: ThreadModel) => {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/questions/add-question",
+      "http://localhost:3000/api/questions/:question_id/threads",
       {
         method: "POST",
         headers: APIheaders,
         body: JSON.stringify({
+          thread_id,
+          thread_content,
           question_id,
-          question_content,
-          category_id,
           id_user,
         }),
       }
@@ -37,9 +37,9 @@ export const addQuestion = async ({
   }
 };
 
-export const getAllQuestions = async () => {
+export const getAllThreads = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/questions");
+    const response = await fetch("http://localhost:3000/api/questions/threads");
 
     if (!response.ok) throw new Error("Request failed");
     const data = await response.json();
@@ -49,12 +49,11 @@ export const getAllQuestions = async () => {
   }
 };
 
-export const getQuestionById = async (question_id: string) => {
+export const getAllThreadsByQuestionId = async (question_id: string) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/questions/${question_id}`
+      `http://localhost:3000/api/questions/${question_id}/threads`
     );
-
     if (!response.ok) throw new Error("Request failed");
     const data = await response.json();
     return data;

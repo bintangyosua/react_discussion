@@ -4,11 +4,18 @@ import { loginAPI, checkLoginStatus } from "../../../services/authAPI";
 import { isAuthenticated } from "../../../utils/auth";
 import DropDownCategory from "./DropDownCategory";
 
+interface Question {
+  question_id: string;
+  question_content: string;
+  category_id: string;
+  id_user: string;
+}
+
 export default function AddQuestion() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const questionId = "";
   const [questionContent, setQuestionContent] = useState("");
-  const categoryId = 2;
+  const categoryId = "2";
   const userId = localStorage.getItem("id_user") || "";
   if (userId === null) userId === "d";
   const username = localStorage.getItem("id_user") || "";
@@ -49,12 +56,14 @@ export default function AddQuestion() {
           className="w-full p-3 text-xl text-gray-900 bg-white border-0 focus:ring-0"
           placeholder="Apa yang ingin anda tanyakan?"
           onChange={(e) => setQuestionContent(e.target.value)}
+          required
         />
       </div>
       <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 ">
         <div className="flex items-center justify-between px-3 py-2 border-t">
           <button
             type="submit"
+            defaultValue={"Uncategorized"}
             className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-600">
             Post Question
           </button>

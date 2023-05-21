@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { getAllThreads } from "../../../services/threadAPI";
+import ThreadCard from "../ThreadCard/ThreadCard";
 
 interface Thread {
-  thread_id: number;
+  thread_id: string;
   thread_title: string;
-  thread_content: string | null;
+  thread_content: string;
   id_user: string;
+  question_content: string;
 }
 
 const Threads = () => {
@@ -12,14 +15,9 @@ const Threads = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/api/threads");
-        if (!response.ok) throw new Error("Request failed");
-        const data = await response.json();
-        setThreads(data);
-      } catch (error) {
-        console.error(error);
-      }
+      const result = await getAllThreads();
+      setThreads(result);
+      console.log(result);
     };
 
     fetchData();
@@ -27,25 +25,16 @@ const Threads = () => {
 
   return (
     <div className="container mx-auto mb-3">
-      <div className="bg-white rounded-lg shadow-sm">
+      <div className="rounded-lg shadow-sm">
         {threads.map((thread: Thread) => (
-          <a
+          <ThreadCard
             key={thread.thread_id}
-            href={`http://localhost:5173/page/${thread.thread_id}`}>
-            <div className="flex flex-col gap-4 mb-4">
-              <div
-                className="border border-gray-300 rounded-md p-4"
-                key={thread.thread_id}>
-                <p className="text-gray-600 mb-2">Penulis: {thread.id_user}</p>
-                <p className="text-gray-800" style={{ whiteSpace: "pre-wrap" }}>
-                  {thread.thread_content !== null &&
-                  thread.thread_content.length > 200
-                    ? thread.thread_content.substring(0, 200) + "..."
-                    : thread.thread_content}
-                </p>
-              </div>
-            </div>
-          </a>
+            thread_id={thread.thread_id}
+            thread_content={thread.thread_content!}
+            id_user={thread.id_user}
+            question_id={thread.id_user}
+            question_content={thread.question_content}
+          />
         ))}
       </div>
     </div>

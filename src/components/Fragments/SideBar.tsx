@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 interface Category {
-  category_id: number;
+  category_id: string;
   category_name: string;
 }
 
