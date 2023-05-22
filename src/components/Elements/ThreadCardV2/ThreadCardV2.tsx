@@ -25,7 +25,7 @@ export default function ThreadCardV2({
   question_id,
 }: ThreadCardV2Props) {
   return (
-    <article className="mb-4 break-inside p-6 rounded-xl bg-white flex flex-col bg-clip-border shadow-sm">
+    <article className="mb-4 break-inside p-4  bg-white flex flex-col bg-clip-border shadow-sm">
       <div className="flex pb-1 items-center justify-between">
         <ThreadProfile
           id_user={id_user}
@@ -34,12 +34,11 @@ export default function ThreadCardV2({
         />
       </div>
       <ThreadQuestion
+        question_id={question_id}
         thread_id={thread_id}
         question_content={question_content}
         thread_content={thread_content}></ThreadQuestion>
-      <div className="py-4">
-        <ThreadAttributes like={likes} />
-      </div>
+      <div className="py-2"></div>
       <div className="relative">
         <ThreadReply />
       </div>

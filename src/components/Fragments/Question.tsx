@@ -6,7 +6,6 @@ import ModalThread from "../Elements/Modal/ModelThread";
 import { getQuestionById } from "../../services/questionAPI";
 import { addThread, getAllThreadsByQuestionId } from "../../services/threadAPI";
 import Question from "../../pages/question";
-import ThreadCard from "../Elements/ThreadCard/ThreadCard";
 import ThreadCardV2 from "../Elements/ThreadCardV2/ThreadCardV2";
 import axios from "axios";
 
@@ -35,7 +34,6 @@ export default function QuestionFull() {
   const { question_id } = useParams<{ question_id: string }>();
   const id_user = localStorage.getItem("id_user") || "";
 
-  const [data, setData] = useState([]);
   const likes = "5";
   const [image, setImage] = useState("");
   const createdAt = "9 Maret 2023";
@@ -114,16 +112,14 @@ export default function QuestionFull() {
   return (
     <div className="mb-1">
       <div className="container mx-auto mb-1">
-        <div className="bg-white rounded-lg shadow-sm px-5 pt-5 mb-1">
-          <h2 className="text-2xl font-bold mb-4 text-slate-800">
+        <div className="bg-white rounded-lg shadow-sm p-3 mb-1">
+          <h2 className="text-2xl font-bold mb-2 text-slate-800">
             {question?.question_content}
           </h2>
-          <hr className="mb-3" />
+          <hr className="mb-3 -mx-3" />
           <div className="flex justify-between">
-            <span className="text-gray-600 mb-4">
-              Penulis: {question?.id_user}
-            </span>{" "}
-            <span className="text-gray-600 mb-4">
+            <span className="text-gray-600">Penulis: {question?.id_user}</span>{" "}
+            <span className="text-gray-600">
               Category: {question?.category_name}
             </span>
           </div>

@@ -9,7 +9,7 @@ export default function ProfileCard() {
       <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 
       {/* <!-- Snippet --> */}
-      <section className="flex antialiased bg-gray-100 text-gray-600 min-h-screen">
+      <section className="flex antialiased bg-gray-100 text-gray-600">
         <div className="h-full w-full">
           {/* <!-- Card --> */}
           <div className="mx-auto bg-white shadow-sm rounded-sm border border-gray-200">

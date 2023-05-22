@@ -1,8 +1,11 @@
+// import ThreadAttributes from "./ThreadAttributes";
+
 export default function ThreadReply() {
   return (
-    <>
+    <div className="flex">
+      {/* <ThreadAttributes like="15" /> */}
       <input
-        className="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 rounded-lg placeholder:text-slate-600 font-medium pr-20"
+        className=" pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 placeholder:text-slate-600 font-medium pr-20"
         type="text"
         placeholder="Write a comment"
       />
@@ -22,6 +25,6 @@ export default function ThreadReply() {
           <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"></path>
         </svg>
       </span>
-    </>
+    </div>
   );
 }

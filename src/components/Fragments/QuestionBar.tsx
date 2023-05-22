@@ -19,16 +19,18 @@ export default function QuestionBar() {
 
   return (
     <div className="ml-3">
-      <div className="block w-72 p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+      <div className="block w-72 bg-white border pb-4">
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 p-3">
           Popular Questions
         </h5>
         {questions.map((item) => (
           <a href={`/questions/${item.question_id}`} key={item.question_id}>
-            <span className="font-normal text-blue-600 text-lg">
-              {item.question_content}
-            </span>
-            <br />
+            <div className="hover:bg-gray-100 px-3 py-1">
+              <span className="font-normal text-blue-600 text-lg">
+                {item.question_content}
+              </span>
+              <br />
+            </div>
           </a>
         ))}
       </div>

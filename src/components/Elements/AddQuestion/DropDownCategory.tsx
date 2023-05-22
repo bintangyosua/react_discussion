@@ -42,7 +42,10 @@ export default function DropDownCategory() {
           Category
         </option>
         {categories.map((category) => (
-          <option key={category.category_id} value={category.category_id}>
+          <option
+            key={category.category_id}
+            value={category.category_id}
+            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
             {category.category_name}
           </option>
         ))}

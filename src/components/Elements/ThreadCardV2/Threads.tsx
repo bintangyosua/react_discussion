@@ -3,9 +3,18 @@ import ThreadCardV2 from "./ThreadCardV2";
 import { getAllThreadsV2 } from "../../../services/threadAPI";
 import axios from "axios";
 
+interface Thread {
+  thread_id: string;
+  thread_title: string;
+  thread_content: string;
+  id_user: string;
+  question_content: string;
+  question_id: string;
+}
+
 export default function Threads() {
   // Getting random image
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Thread[]>([]);
   const likes = "5";
   const [image, setImage] = useState("");
   const createdAt = "9 Maret 2023";

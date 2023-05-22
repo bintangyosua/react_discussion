@@ -59,6 +59,17 @@ export const getQuestionById = async (question_id: string) => {
     const data = await response.json();
     return data;
   } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getAnswerQuestionCount = async (question_id: string) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/questions/${question_id}/answer-count`
+    );
+    return response;
+  } catch (error) {
     throw error;
   }
 };

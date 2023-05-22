@@ -8,6 +8,7 @@ interface Question {
   question_content: string;
   category_id: string;
   id_user: string;
+  createdAt: string;
 }
 
 export default function AddQuestion() {
@@ -48,7 +49,7 @@ export default function AddQuestion() {
       <input type="text" name="category_id" defaultValue={categoryId} hidden />
       <input type="text" name="id_user" defaultValue={userId} hidden />
 
-      <div className="px-4 py-2 bg-white rounded-t-lg">
+      <div className="px-4 py-2 bg-white">
         <input
           type="text"
           name="question_content"
@@ -58,16 +59,16 @@ export default function AddQuestion() {
           required
         />
       </div>
-      <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 ">
+      <div className="w-full mb-4 border border-gray-200 bg-gray-50 ">
         <div className="flex items-center justify-between px-3 py-2 border-t">
+          <DropDownCategory />
+          {/* <div className="flex pl-0 space-x-1 sm:pl-2"></div> */}
           <button
             type="submit"
             defaultValue={"Uncategorized"}
             className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-600">
             Post Question
           </button>
-          <DropDownCategory />
-          {/* <div className="flex pl-0 space-x-1 sm:pl-2"></div> */}
         </div>
       </div>
     </form>
