@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllThreads } from "../../../services/threadAPI";
-import ThreadCard from "../ThreadCard/ThreadCard";
+import ThreadCard from "./ThreadCard";
 
 interface Thread {
   thread_id: string;
@@ -8,6 +8,7 @@ interface Thread {
   thread_content: string;
   id_user: string;
   question_content: string;
+  question_id: string;
 }
 
 const Threads = () => {
@@ -17,7 +18,6 @@ const Threads = () => {
     const fetchData = async () => {
       const result = await getAllThreads();
       setThreads(result);
-      console.log(result);
     };
 
     fetchData();
@@ -32,7 +32,7 @@ const Threads = () => {
             thread_id={thread.thread_id}
             thread_content={thread.thread_content!}
             id_user={thread.id_user}
-            question_id={thread.id_user}
+            question_id={thread.question_id}
             question_content={thread.question_content}
           />
         ))}

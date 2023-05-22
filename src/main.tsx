@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
-import Page from "./pages/page";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Profile from "./pages/profile";
 import Question from "./pages/question";
+import Thread from "./pages/thread";
 
 const router = createBrowserRouter([
   {
@@ -15,12 +15,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/question/:question_id",
+    path: "/questions/:question_id",
     element: <Question />,
   },
   {
-    path: "/page/:thread_id",
-    element: <Page />,
+    path: "/questions/:question_id/threads/:thread_id",
+    element: <Thread />,
   },
   {
     path: "/profile/:id_user",

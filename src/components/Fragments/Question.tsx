@@ -7,6 +7,8 @@ import { getQuestionById } from "../../services/questionAPI";
 import { addThread, getAllThreadsByQuestionId } from "../../services/threadAPI";
 import Question from "../../pages/question";
 import ThreadCard from "../Elements/ThreadCard/ThreadCard";
+import ThreadCardV2 from "../Elements/ThreadCardV2/ThreadCardV2";
+import axios from "axios";
 
 interface Question {
   question_id: string;
@@ -33,6 +35,11 @@ export default function QuestionFull() {
   const { question_id } = useParams<{ question_id: string }>();
   const id_user = localStorage.getItem("id_user") || "";
 
+  const [data, setData] = useState([]);
+  const likes = "5";
+  const [image, setImage] = useState("");
+  const createdAt = "9 Maret 2023";
+
   const handleContentChange = (value: string) => {
     setContent(value);
   };
@@ -56,6 +63,15 @@ export default function QuestionFull() {
     };
 
     fetchQuestion();
+  }, []);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      const response = await axios.get("https://randomuser.me/api/");
+      setImage(response.data.results[0].picture.thumbnail);
+    };
+
+    fetchImage();
   }, []);
 
   useEffect(() => {
@@ -96,43 +112,46 @@ export default function QuestionFull() {
   };
 
   return (
-    <div className="w-1/2">
-      <div className="mb-1">
-        <div className="container mx-auto mb-1">
-          <div className="bg-white rounded-lg shadow-sm px-5 pt-5 mb-1">
-            <h2 className="text-2xl font-bold mb-4 text-slate-800">
-              {question?.question_content}
-            </h2>
-            <hr className="mb-3" />
-            <div className="flex justify-between">
-              <span className="text-gray-600 mb-4">
-                Penulis: {question?.id_user}
-              </span>{" "}
-              <span className="text-gray-600 mb-4">
-                Category: {question?.category_name}
-              </span>
-            </div>
+    <div className="mb-1">
+      <div className="container mx-auto mb-1">
+        <div className="bg-white rounded-lg shadow-sm px-5 pt-5 mb-1">
+          <h2 className="text-2xl font-bold mb-4 text-slate-800">
+            {question?.question_content}
+          </h2>
+          <hr className="mb-3" />
+          <div className="flex justify-between">
+            <span className="text-gray-600 mb-4">
+              Penulis: {question?.id_user}
+            </span>{" "}
+            <span className="text-gray-600 mb-4">
+              Category: {question?.category_name}
+            </span>
           </div>
         </div>
-        <div className="flex justify-end mx-3 my-2">
-          <Button onClick={openModal}>Jawab</Button>
-          <ModalThread
-            isOpen={isOpen}
-            onClose={closeModal}
-            onSend={handleAddThread}
-            title="Answer this question">
-            <QuillEditor value={content} onChange={handleContentChange} />
-          </ModalThread>
-        </div>
-        {threads.map((thread: Thread) => (
-          <ThreadCard
-            thread_id={thread.thread_id}
-            thread_content={thread.thread_content}
-            id_user={thread.id_user}
-            question_id={thread.question_id}
-          />
-        ))}
       </div>
+      <div className="flex justify-end mx-3 my-2">
+        <Button onClick={openModal}>Jawab</Button>
+        <ModalThread
+          isOpen={isOpen}
+          onClose={closeModal}
+          onSend={handleAddThread}
+          title="Answer this question">
+          <QuillEditor value={content} onChange={handleContentChange} />
+        </ModalThread>
+      </div>
+      {threads.map((thread: Thread) => (
+        <ThreadCardV2
+          key={thread.thread_id}
+          thread_id={thread.thread_id}
+          thread_content={thread.thread_content}
+          id_user={thread.id_user}
+          question_id={thread.question_id}
+          image={image}
+          createdAt={createdAt}
+          question_content={""}
+          likes={likes}
+        />
+      ))}
     </div>
   );
 }

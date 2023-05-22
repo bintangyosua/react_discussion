@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const APIheaders = {
   "Content-Type": "application/json",
 };
@@ -46,6 +48,17 @@ export const getAllThreads = async () => {
     return data;
   } catch (error) {
     throw error;
+  }
+};
+
+export const getAllThreadsV2 = async () => {
+  try {
+    const response = await axios.get(
+      "http://localhost:3000/api/questions/threads"
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
 };
 

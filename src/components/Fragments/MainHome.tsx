@@ -1,13 +1,11 @@
-import AllThreads from "../Elements/AllThreads/Index";
-import Thread from "../Elements/NewThread/Index";
+import AddQuestion from "../Elements/AddQuestion/AddQuestion";
+import Threads from "../Elements/ThreadCardV2/Threads";
 
 const MainHome = () => {
   return (
-    <div className="w-1/2">
-      <Thread />
-      <div className="">
-        <AllThreads />
-      </div>
+    <div className="">
+      <AddQuestion />
+      <Threads />
     </div>
   );
 };

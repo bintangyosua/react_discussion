@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { addQuestion } from "../../../services/questionAPI";
-import { loginAPI, checkLoginStatus } from "../../../services/authAPI";
 import { isAuthenticated } from "../../../utils/auth";
 import DropDownCategory from "./DropDownCategory";
 

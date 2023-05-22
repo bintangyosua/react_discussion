@@ -15,9 +15,11 @@ export default function ThreadCard({
 }: ThreadModel) {
   return (
     <div>
-      <a key={thread_id} href={`http://localhost:5173/page/${thread_id}`}>
+      <a
+        key={thread_id}
+        href={`http://localhost:5173/questions/${question_id}/threads/${thread_id}`}>
         <div className="flex flex-col gap-4 mb-4">
-          <div className="border border-gray-300 rounded-md p-4 bg-white">
+          <div className="border rounded-md p-4 bg-white">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
               {question_content}
             </h5>

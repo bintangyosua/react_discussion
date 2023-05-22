@@ -9,10 +9,10 @@ export default function ProfileCard() {
       <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 
       {/* <!-- Snippet --> */}
-      <section className="flex justify-center antialiased bg-gray-100 text-gray-600 min-h-screen">
-        <div className="h-full">
+      <section className="flex antialiased bg-gray-100 text-gray-600 min-h-screen">
+        <div className="h-full w-full">
           {/* <!-- Card --> */}
-          <div className="max-w-sm mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+          <div className="mx-auto bg-white shadow-sm rounded-sm border border-gray-200">
             <div className="flex flex-col h-full">
               {/* <!-- Card top --> */}
               <div className="flex-grow p-5">
